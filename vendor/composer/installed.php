@@ -1,22 +1,22 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'c651a3df4b9760dcbc376b4faca68557af1c616e',
         'name' => 'luan-kussner/agendatelefonica',
         'dev' => true,
     ),
     'versions' => array(
         'luan-kussner/agendatelefonica' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'c651a3df4b9760dcbc376b4faca68557af1c616e',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(

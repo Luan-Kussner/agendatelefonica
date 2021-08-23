@@ -16,7 +16,7 @@ class ComposerStaticInite6a52f82a81cb9d73720d8cb1c1e0e9c
     public static $prefixDirsPsr4 = array (
         'Agenda\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/classes',
+            0 => __DIR__ . '/..' . '/classes/php-classes/src',
         ),
     );
 
