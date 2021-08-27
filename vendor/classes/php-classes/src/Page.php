@@ -1,6 +1,6 @@
 <?php
 
-namespace Agenda;
+namespace Hcode;
 
 use Rain\Tpl;
 

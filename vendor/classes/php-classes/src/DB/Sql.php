@@ -1,13 +1,13 @@
 <?php 
 
-namespace Agenda\DB;
+namespace Hcode\DB;
 
 class Sql {
 
 	const HOSTNAME = "127.0.0.1";
 	const USERNAME = "root";
 	const PASSWORD = "root";
-	const DBNAME = "db_ecommerce";
+	const DBNAME = "agetel";
 
 	private $conn;
 
