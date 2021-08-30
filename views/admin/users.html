@@ -38,15 +38,15 @@
                 <tbody>
                   {loop="$users"}
                   <tr>
-                    <td>{$value.id}</td>
+                    <td>{$value.id_contato}</td>
                     <td>{$value.nome}</td>
                     <td>{$value.descricao}</td>
                     <td>{$value.email}</td>
                     <td>{$value.numero}</td>
                     <td>{$value.status ? "ativo" : "inativo"}</td>
                     <td>
-                      <a href="/admin/users/{$value.id}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-                      <a href="/admin/users/{$value.id}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                      <a href="/admin/users/{$value.id_contato}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/admin/users/{$value.id_contato}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                     </td>
                   </tr>
                   {/loop}

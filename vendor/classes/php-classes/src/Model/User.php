@@ -13,14 +13,18 @@ class User extends Model
   {
       $sql = new Sql();
 
-     return $sql->select("SELECT ct.id, ct.nome, cg.descricao, ct.email, tel.numero, ct.status
+    /* return $sql->select("SELECT ct.id, ct.nome, cg.descricao, ct.email, tel.numero, ct.status
      FROM contatos as ct left JOIN telefone as tel on ct.id_telefone = tel.id
-     left join cargo as cg on ct.id_cargo = cg.id");
+     left join cargo as cg on ct.id_cargo = cg.id");*/
+
+     return $sql->select("SELECT ct.id_contato, ct.nome, cg.descricao, ct.email, tel.numero, ct.status
+     FROM contatos as ct left JOIN telefone as tel on ct.id_telefone = tel.id_telefone
+     left join cargo as cg on ct.id_cargo = cg.id_cargo");
   }
 
   public function save($dados)
-    {
-       //$dataCriacao = $this->formatarData($dados['criacao']);
+  {
+   //$dataCriacao = $this->formatarData($dados['criacao']);
        //$dataCriacao = new \DateTime("now");
        //$dataCriacao->format("Y-M-D HH:ii:ss");
 
@@ -36,16 +40,16 @@ class User extends Model
        //exit;
       
        $conn = new Sql();
-
-       $results = $conn->query("INSERT INTO `agetel`.`contatos` (`nome`, `email`, `status`, `criacao`, `id_cargo`, `id_telefone`) VALUES ('{$dados['nome']}', '{$dados['email']}', '{$dados['status']}', '{$dataCriacao}', '{$dados['descricao']}', '{$dados['numero']}'");
        
-       $prepare = $this->$results->query($results);
+       $conn->query("INSERT INTO telefone (numero) VALUES ('{$dados['numero']}')");
        
-       $prepare->bindParam(1, $dados);
+       $telefone = $conn->select("SELECT id_telefone FROM telefone where numero = ('{$dados['numero']}')");
+     
+       $telefone1 = $telefone[0];
+     
+       $conn->query("INSERT INTO contatos (`nome`, `email`, `status`, `criacao`, `id_cargo`, `id_telefone`)
+       VALUES ('{$dados['nome']}', '{$dados['email']}', '{$dados['status']}', '{$dataCriacao}', '{$dados['id_cargo']}', '{$telefone1['id_telefone']}')");
 
-       $prepare->execute();
-
-       return $prepare->rowCount();
     }
 
 }

@@ -96,19 +96,20 @@ $app->get("/admin/users/:iduser/delete", function($iduser){
 	
 });
 
-$app->get("/admin/users/:iduser", function($iduser) {
+$app->get("/admin/users/:id_contato", function($id_contato) {
 
 //	User::verifyLogin();
 
 	$user = new User();
 
-	$user->get((int)$iduser);
+	$user->get((int)$id_contato);
 	
 	$page = new PageAdmin();
 
 	$page->setTpl("users-update", array(
-		"user"=>$user->getValues()
+		"id_contato"=>$user->getValues()
 	));
+	
 });
 
 $app->post("/admin/users/create", function () {
@@ -124,15 +125,13 @@ $app->post("/admin/users/create", function () {
 
 });
 
-$app->post("/admin/users/:iduser", function($iduser){
+$app->post("/admin/users/:id_contato", function($id_contato){
 
 //	User::verifyLogin();
 
 	$user = new User();
 
-	$_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0;
-
-	$user->get((int)$iduser);
+	$user->get((int)$id_contato);
 
 	$user->setData($_POST);
 
@@ -312,7 +311,6 @@ $app->get("/categories/:idcategory", function($idcategory){
 	]);
 
 });
-
 
 $app->run();
 
