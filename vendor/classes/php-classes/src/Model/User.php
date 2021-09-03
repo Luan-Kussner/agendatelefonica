@@ -52,4 +52,62 @@ class User extends Model
 
     }
 
-}
+    public function get($idcontato)
+    {
+        $sql = new Sql();
+
+        $results = $sql->select("SELECT * FROM contatos a INNER JOIN telefone b USING(id_telefone)
+        inner join cargo c using(id_cargo) WHERE a.id_contato = :id_contato",
+        array(
+
+        ":id_contato"=>$idcontato
+
+        ));
+       
+        $this->setData($results[0]);
+    }
+
+    public function update($dados)
+    {
+
+      $sql = new Sql();
+      $datetime = new \DateTime('now');
+      $dataCriacao = $datetime->format('Y-m-d H:i:s');
+      
+      
+      $sql->query("UPDATE telefone set numero = '{$dados['numero']}' where id_telefone = '{$dados['id_telefone']}'");
+      
+      $sql->query("UPDATE contatos set nome = '{$dados['nome']}', email = '{$dados['email']}', id_cargo = {$dados['id_cargo']}, status = 1 where (id_contato = {$dados['id_contato']})");
+      //email = '{$dados['email']}', id_cargo = {$dados['id_cargo']}, status = {$dados['status']} where (id_contato = {$dados['id_contato']})");
+    
+    
+    
+    
+    
+    
+    
+    
+      // var_dump("UPDATE contatos set `nome` = '{$dados['nome']}', `email` = '{$dados['email']}', `id_cargo` = {$dados['id_cargo']}, `status` = {$dados['status']} where `id_contato` = {$dados['id_contato']}");
+      //exit;
+    }
+  }
+
+
+   
+
+
+/*
+      $sql->query("INSERT INTO telefone (numero) VALUES ('{$dados['numero']}')");
+       
+      $telefone = $sql->select("SELECT id_telefone FROM telefone where numero = ('{$dados['numero']}')");
+    
+      $telefone1 = $telefone[0];
+       
+     $results = $sql->query("UPDATE contatos SET idcontato = :idcontato where ('{$dados['nome']}', '{$dados['email']}', '{$dados['status']}', '{$dataCriacao}', '{$dados['id_cargo']}', '{$telefone1['id_telefone']}')", array(
+
+        ":idcontato"=>$idcontato
+      ));
+
+
+      $this->setData($results[0]);
+  } */

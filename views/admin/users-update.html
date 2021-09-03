@@ -18,20 +18,21 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/admin/users/{$id_contato.id_contato}" method="post">
+        <form role="form" action="/admin/users/{$contato.id_contato}" method="post">
+          <input type="hidden" name="id_contato" value= "{$contato.id_contato}">
           <div class="box-body">
             <div class="form-group">
               <label for="nome">Nome</label>
-              <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome" value="{$user.nome}">
+              <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome" value="{$contato.nome}">
             </div>
 
             <div class="form-group">
               <label for="id_cargo">Cargo
                 <select name="id_cargo" id="id_cargo">
                   <option>Selecione o Cargo</option>
-                  <option value="5">SUPORTE TI</option>
-                  <option value="6">DEV</option>
-                  <option value="7">ESTAGIARIO</option>
+                  <option value="5" {if="$contato.id_cargo == 5"} selected {else} {/if} >SUPORTE TI</option>
+                  <option value="6" {if="$contato.id_cargo == 6"} selected {else} {/if} >DEV</option>
+                  <option value="7" {if="$contato.id_cargo == 7"} selected {else} {/if} >ESTAGIARIO</option>
                 </select>
 
             <!-- <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite o cargo"> -->
@@ -42,15 +43,16 @@
 
             <div class="form-group">
               <label for="numero">Telefone</label>
-              <input type="tel" class="form-control" id="numero" name="numero" placeholder="Digite o Telefone">
+              <input type="tel" class="form-control" id="numero" name="numero" placeholder="Digite o Telefone" value= "{$contato.numero}">
+              <input type="hidden" name="id_telefone" value= "{$contato.id_telefone}">
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Digite o E-mail">
+              <input type="email" class="form-control" id="email" name="email" placeholder="Digite o E-mail" value= "{$contato.email}">
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="status" value="1"> Status
+                <input type="checkbox" name="status" {if="$contato.status == 1"}checked {/if}> Status
               </label>
             </div>
           </div>

@@ -96,18 +96,19 @@ $app->get("/admin/users/:iduser/delete", function($iduser){
 	
 });
 
-$app->get("/admin/users/:id_contato", function($id_contato) {
+$app->get("/admin/users/:id_contato", function($idcontato) {
 
 //	User::verifyLogin();
 
-	$user = new User();
+	$contato = new User();
 
-	$user->get((int)$id_contato);
+	$contato->get((int)$idcontato);
+
 	
 	$page = new PageAdmin();
 
 	$page->setTpl("users-update", array(
-		"id_contato"=>$user->getValues()
+		"contato"=>$contato->getValues()
 	));
 	
 });
@@ -125,22 +126,22 @@ $app->post("/admin/users/create", function () {
 
 });
 
-$app->post("/admin/users/:id_contato", function($id_contato){
+$app->post("/admin/users/:id_contato", function($idcontato){
 
-//	User::verifyLogin();
-
-	$user = new User();
-
-	$user->get((int)$id_contato);
-
-	$user->setData($_POST);
-
-	$user->update();
-
-	header("Location: /admin/users");
-	exit;
+	//	User::verifyLogin();
 	
-});
+		$user = new User();
+	
+		$user->get((int)$idcontato);
+	
+		//$user->setData($_POST);
+	
+		$user->update($_POST);
+	
+		header("Location: /admin/users");
+		exit;
+		
+	});
 
 $app->get("/admin/forgot", function() {
 
