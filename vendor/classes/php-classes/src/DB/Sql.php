@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hcode\DB;
+namespace Agenda\DB;
 
 class Sql {
 

@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2091eace1c948fcb591d4b2d5b191510c28c3df7',
+        'reference' => '72fe0df38a719715510292835ff62dfe309656ae',
         'name' => 'luan-kussner/agendatelefonica',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2091eace1c948fcb591d4b2d5b191510c28c3df7',
+            'reference' => '72fe0df38a719715510292835ff62dfe309656ae',
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(
